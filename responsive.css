@@ -1,0 +1,322 @@
+/* 响应式样式 */
+
+/* 大型设备 (大型桌面, 1200px 及以上) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+/* 中型设备 (桌面, 992px 及以上) */
+@media (max-width: 1199px) {
+    .hero-content h2 {
+        font-size: 42px;
+    }
+    
+    .hero-content p {
+        font-size: 26px;
+    }
+    
+    .section-header h2 {
+        font-size: 22px;
+    }
+}
+
+/* 小型设备 (平板, 768px 及以上) */
+@media (max-width: 991px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero-content h2 {
+        font-size: 38px;
+    }
+    
+    .hero-content p {
+        font-size: 24px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+    }
+    
+    .features-grid, .skills-grid, .services-grid, .products-grid, .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-slider {
+        flex-direction: column;
+    }
+    
+    .testimonial {
+        margin-bottom: 20px;
+    }
+    
+    .plans-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .plan-card {
+        margin-bottom: 30px;
+        max-width: 450px;
+    }
+    
+    .plan-card.featured {
+        transform: none;
+    }
+    
+    .plan-card.featured:hover {
+        transform: translateY(-5px);
+    }
+    
+    .hero-buttons .btn {
+        padding: 16px 30px;
+        font-size: 18px;
+    }
+    
+    /* 图片上传响应式 */
+    .image-preview {
+        height: 250px;
+    }
+    
+    .cropper-container {
+        height: 350px;
+    }
+    
+    .multi-image-upload {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .image-item {
+        height: 120px;
+    }
+}
+
+/* 超小型设备 (手机, 767px 以下) */
+@media (max-width: 767px) {
+    header .container {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero {
+        padding-top: 120px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .hero-content h2 {
+        font-size: 32px;
+    }
+    
+    .hero-content p {
+        font-size: 22px;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .section-header h2 {
+        font-size: 20px;
+    }
+    
+    .features-grid, .skills-grid, .services-grid, .products-grid, .categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .copyright {
+        margin-bottom: 20px;
+    }
+    
+    .social-links a {
+        margin: 0 10px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+        margin: 20px auto 0;
+    }
+    
+    .hero-buttons .btn {
+        padding: 14px 28px;
+        font-size: 18px;
+    }
+    
+    .app-buttons {
+        flex-direction: column;
+    }
+    
+    .demo-container {
+        flex-direction: column;
+    }
+    
+    /* 图片上传响应式 */
+    .image-preview {
+        height: 220px;
+    }
+    
+    .upload-placeholder .upload-icon {
+        font-size: 36px;
+    }
+    
+    .upload-placeholder .upload-text {
+        font-size: 14px;
+    }
+    
+    .upload-placeholder .upload-subtext {
+        font-size: 12px;
+    }
+    
+    .cropper-container {
+        height: 300px;
+    }
+    
+    .image-upload-controls {
+        flex-direction: column;
+    }
+    
+    .image-upload-controls .btn {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .multi-image-upload {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .image-item {
+        height: 100px;
+    }
+}
+
+/* 极小设备 (小型手机, 575px 以下) */
+@media (max-width: 575px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    .hero-content h2 {
+        font-size: 28px;
+    }
+    
+    .hero-content p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    
+    .hero-buttons .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        width: 100%;
+    }
+    
+    .section-header h2 {
+        font-size: 18px;
+    }
+    
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .feature-card, .skill-category, .service-card {
+        padding: 20px 15px;
+    }
+    
+    .about-text h2 {
+        font-size: 20px;
+    }
+    
+    .course-content h3, .product-info h3, .category-card h3 {
+        font-size: 16px;
+    }
+    
+    .feature-icon, .skill-icon, .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    /* 图片上传响应式 */
+    .image-preview {
+        height: 200px;
+    }
+    
+    .cropper-container {
+        height: 250px;
+    }
+}
+
+/* 针对导航栏的移动菜单（汉堡菜单）样式 */
+@media (max-width: 767px) {
+    /* 在JavaScript中实现菜单切换功能时使用 */
+    nav.active ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .search-box input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .tags-nav {
+        justify-content: flex-start;
+        padding: 10px 0;
+    }
+    
+    .video-thumbnail {
+        height: 160px;
+    }
+} 
