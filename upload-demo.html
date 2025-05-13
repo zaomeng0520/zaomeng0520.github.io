@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活助 - 图片上传演示</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Cropperjs 图片裁剪库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> 生活助</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="skills.html"><i class="fas fa-graduation-cap"></i> 生活技能教学</a></li>
+                    <li><a href="health.html"><i class="fas fa-heartbeat"></i> 健康管理</a></li>
+                    <li><a href="assistant.html"><i class="fas fa-robot"></i> 智能助理</a></li>
+                    <li><a href="shop.html"><i class="fas fa-shopping-cart"></i> 好物购入</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2><span class="hero-type" data-text="图片上传功能演示">图片上传功能演示</span></h2>
+                <p><span class="hero-type" data-text="探索多种图片上传方式，包括单张、多张、裁剪和预览等功能">探索多种图片上传方式，包括单张、多张、裁剪和预览等功能</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="upload-demos">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-image"></i> 基础图片上传</h2>
+                <p>单张图片上传示例</p>
+            </div>
+            
+            <div class="image-upload">
+                <input type="file" id="single-image-upload" accept="image/*">
+                <div class="image-preview">
+                    <div class="upload-placeholder">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">点击或拖拽上传图片</div>
+                        <div class="upload-subtext">支持 JPG、PNG、GIF 等格式，文件大小不超过5MB</div>
+                    </div>
+                    <div class="remove-image">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-upload-form">
+                <form>
+                    <div class="form-group">
+                        <label for="image-title"><i class="fas fa-heading"></i> 图片标题</label>
+                        <input type="text" id="image-title" placeholder="请输入图片标题">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="image-description"><i class="fas fa-align-left"></i> 图片描述</label>
+                        <textarea id="image-description" placeholder="请输入图片描述"></textarea>
+                    </div>
+                    
+                    <div class="image-upload-controls">
+                        <button type="submit" class="btn-submit"><i class="fas fa-upload"></i> 上传图片</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="upload-demos">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-images"></i> 多图片上传</h2>
+                <p>多张图片上传示例</p>
+            </div>
+            
+            <div class="multi-image-upload" id="multi-upload">
+                <!-- 已上传的图片项 -->
+                <div class="image-item" style="background-image: url('images/demo/image1.jpg')">
+                    <div class="item-remove">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                
+                <!-- 上传按钮 -->
+                <div class="image-item">
+                    <div class="item-placeholder">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <input type="file" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            
+            <div class="image-upload-controls">
+                <button class="btn-submit"><i class="fas fa-save"></i> 保存图库</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="upload-demos">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-crop-alt"></i> 图片裁剪</h2>
+                <p>上传并裁剪图片示例</p>
+            </div>
+            
+            <div class="image-upload">
+                <input type="file" id="crop-image-upload" accept="image/*">
+                <div class="image-preview">
+                    <div class="upload-placeholder">
+                        <div class="upload-icon">
+                            <i class="fas fa-crop-alt"></i>
+                        </div>
+                        <div class="upload-text">上传要裁剪的图片</div>
+                        <div class="upload-subtext">上传后可以调整裁剪区域</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 裁剪区域（上传图片后显示） -->
+            <div class="cropper-container" style="display: none;">
+                <img src="" id="crop-image">
+            </div>
+            
+            <!-- 裁剪预览 -->
+            <div class="cropper-preview" style="display: none;"></div>
+            
+            <div class="image-upload-controls">
+                <button class="btn" id="crop-btn" style="display: none;"><i class="fas fa-cut"></i> 裁剪图片</button>
+                <button class="btn-submit" id="save-crop" style="display: none;"><i class="fas fa-save"></i> 保存裁剪</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p><i class="far fa-copyright"></i> 2023 生活助。保留所有权利。</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-weixin"></i> 微信</a>
+                    <a href="#" target="_blank"><i class="fab fa-weibo"></i> 微博</a>
+                    <a href="#" target="_blank"><i class="fab fa-qq"></i> QQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 图片裁剪功能
+        document.addEventListener('DOMContentLoaded', function() {
+            let cropper;
+            const cropImageUpload = document.getElementById('crop-image-upload');
+            const cropImage = document.getElementById('crop-image');
+            const cropperContainer = document.querySelector('.cropper-container');
+            const cropperPreview = document.querySelector('.cropper-preview');
+            const cropBtn = document.getElementById('crop-btn');
+            const saveCropBtn = document.getElementById('save-crop');
+            
+            if(cropImageUpload) {
+                cropImageUpload.addEventListener('change', function(e) {
+                    const file = this.files[0];
+                    if(file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            // 显示裁剪区域
+                            cropperContainer.style.display = 'block';
+                            cropBtn.style.display = 'inline-block';
+                            
+                            // 设置图片源
+                            cropImage.src = e.target.result;
+                            
+                            // 初始化裁剪器
+                            if(cropper) {
+                                cropper.destroy();
+                            }
+                            
+                            cropper = new Cropper(cropImage, {
+                                aspectRatio: 1,
+                                viewMode: 1,
+                                preview: cropperPreview,
+                                ready: function() {
+                                    cropperPreview.style.display = 'block';
+                                }
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+            
+            if(cropBtn) {
+                cropBtn.addEventListener('click', function() {
+                    if(cropper) {
+                        const canvas = cropper.getCroppedCanvas({
+                            width: 300,
+                            height: 300
+                        });
+                        
+                        if(canvas) {
+                            // 显示裁剪后的图片
+                            const croppedImageUrl = canvas.toDataURL('image/jpeg');
+                            const croppedImage = document.createElement('img');
+                            croppedImage.src = croppedImageUrl;
+                            croppedImage.style.width = '100%';
+                            
+                            cropperPreview.innerHTML = '';
+                            cropperPreview.appendChild(croppedImage);
+                            
+                            // 显示保存按钮
+                            saveCropBtn.style.display = 'inline-block';
+                            
+                            // 存储裁剪后的图片数据（实际应用中可以发送到服务器）
+                            saveCropBtn.addEventListener('click', function() {
+                                // 这里可以添加保存到服务器的代码
+                                alert('裁剪后的图片已保存！');
+                                
+                                // 模拟保存后的操作
+                                setTimeout(() => {
+                                    // 隐藏裁剪相关元素
+                                    cropperContainer.style.display = 'none';
+                                    cropperPreview.style.display = 'none';
+                                    cropBtn.style.display = 'none';
+                                    saveCropBtn.style.display = 'none';
+                                    
+                                    // 显示裁剪后的图片在预览区
+                                    const imagePreview = document.querySelector('.image-upload .image-preview');
+                                    if(imagePreview) {
+                                        imagePreview.style.backgroundImage = `url(${croppedImageUrl})`;
+                                        imagePreview.classList.add('has-image');
+                                        const placeholder = imagePreview.querySelector('.upload-placeholder');
+                                        if(placeholder) {
+                                            placeholder.style.display = 'none';
+                                        }
+                                    }
+                                }, 1000);
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // 多图片上传功能
+            const multiUpload = document.getElementById('multi-upload');
+            if(multiUpload) {
+                const addButton = multiUpload.querySelector('.image-item .item-placeholder');
+                const fileInput = multiUpload.querySelector('input[type="file"]');
+                
+                // 点击添加按钮
+                if(addButton && fileInput) {
+                    addButton.addEventListener('click', function() {
+                        fileInput.click();
+                    });
+                    
+                    // 文件选择变化
+                    fileInput.addEventListener('change', function(e) {
+                        const file = this.files[0];
+                        if(file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                // 创建新的图片项
+                                const newImageItem = document.createElement('div');
+                                newImageItem.className = 'image-item';
+                                newImageItem.style.backgroundImage = `url(${e.target.result})`;
+                                
+                                // 添加删除按钮
+                                const removeButton = document.createElement('div');
+                                removeButton.className = 'item-remove';
+                                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                                newImageItem.appendChild(removeButton);
+                                
+                                // 添加删除事件
+                                removeButton.addEventListener('click', function(e) {
+                                    e.stopPropagation();
+                                    newImageItem.remove();
+                                });
+                                
+                                // 插入到添加按钮前面
+                                multiUpload.insertBefore(newImageItem, multiUpload.lastElementChild);
+                                
+                                // 重置文件输入
+                                fileInput.value = '';
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                }
+                
+                // 为已有的删除按钮添加事件
+                const removeButtons = multiUpload.querySelectorAll('.item-remove');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const imageItem = this.parentElement;
+                        imageItem.remove();
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
